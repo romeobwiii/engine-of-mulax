@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🩷 To My Muse | Mulax Prime 🩷</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      position: relative;
+      color: #ffe4e1;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(2px);
+      z-index: 0;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+      color: #ffb6c1;
+      font-size: 3.5rem;
+      margin-top: 2rem;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+      z-index: 2;
+      position: relative;
+    }
+
+    .card {
+      max-width: 750px;
+      margin: 3rem auto;
+      padding: 3rem;
+      background: rgba(255,255,255,0.15);
+      border-radius: 25px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .message {
+      font-size: 1.15em;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+
+    .message a {
+      color: #ffb6c1;
+      text-decoration: none;
+    }
+
+    .typewriter-cursor {
+      display: inline-block;
+      width: 0.5em;
+      height: 1.1em;
+      background-color: #ffe4e1;
+      animation: blink 0.8s step-end infinite;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+
+    .floating {
+      position: absolute;
+      color: rgba(255,182,193,0.7);
+      font-size: 0.9em;
+      font-weight: bold;
+      pointer-events: none;
+      animation: floatAnim linear infinite;
+    }
+
+    @keyframes blink { from, to { background-color: transparent; } 50% { background-color: #ffe4e1; } }
+    @keyframes floatAnim { 0% { transform: translateY(100vh) translateX(0); opacity:0;} 50%{opacity:1;} 100% { transform: translateY(-50px) translateX(50px); opacity:0;} }
+
+    .music-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: rgba(255, 255, 255, 0.85);
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 10;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .music-btn:hover { transform: scale(1.1); background-color: #f9dce1; }
+    .music-btn img { width: 26px; height: 26px; }
+
+    @media (max-width: 600px){
+      h1 { font-size: 2.4rem; }
+      .card { padding: 2rem; max-width: 90%; margin: 2rem auto; }
+      .message { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>To My Muse</h1>
+
+  <div class="card">
+    <div class="message" id="text"></div>
+    <span id="cursor" class="typewriter-cursor"></span>
+  </div>
+
+  <button id="musicBtn" class="music-btn" title="Play Music">
+    <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" alt="Play">
+  </button>
+  <audio id="bgMusic" src="music/WhitePetals_KeysOfMoon.mp3" loop></audio>
+
+  <script>
+    const message = `You mean so much to me — more than words can hold.  
+Even if reading pages like this might feel tiring, I hope this one speaks to your heart. 🌸
+
+Sometimes I feel my products are wasted just like Juice WRLD said,  
+but I feel they are not wasted as they go to my engine of MulaxPrime.  
+
+Every project I build, every line of code I write, carries a little spark of inspiration you’ve given me.  
+
+Confidence has held me back in moments, yet you’ve always blessed my day.  
+Even in silence, your presence fuels my courage.
+
+If you ever feel like talking to me, I’d love to hear from you —  
+you can reach me at <a href="mailto:amantlempaekae@gmail.com">amantlempaekae@gmail.com</a> ✨
+
+May these words flow gently as whispered sparks across the screen.  
+~ From the Mythic Developer`;
+
+    const imageUrls = [
+      'image/image1.jpg',
+      'image/image2.jpg',
+      'image/image3.jpg'
+    ];
+
+    const textElement = document.getElementById("text");
+    const cursorElement = document.getElementById("cursor");
+    const bgMusic = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+
+    let index = 0;
+    let currentImage = 0;
+    let typingSpeed = 40;
+    let isPlaying = false;
+
+    function typeWriter() {
+      if (index < message.length) {
+        textElement.innerHTML += message.charAt(index);
+        index++;
+        setTimeout(typeWriter, typingSpeed);
+      } else {
+        cursorElement.style.display = 'none';
+      }
+    }
+
+    function changeBackground() {
+      document.body.style.backgroundImage = `url('${imageUrls[currentImage]}')`;
+      currentImage = (currentImage + 1) % imageUrls.length;
+    }
+
+    function spawnFloatingWords(){
+      const words = ["✨", "💫", "🌸", "💌", "🌟"];
+      const span = document.createElement('span');
+      span.className = "floating";
+      span.style.left = Math.random()*100 + "vw";
+      span.style.fontSize = 12 + Math.random()*20 + "px";
+      span.style.animationDuration = 5 + Math.random()*5 + "s";
+      span.innerText = words[Math.floor(Math.random()*words.length)];
+      document.body.appendChild(span);
+      setTimeout(()=>{ document.body.removeChild(span); }, 10000);
+    }
+
+    setInterval(spawnFloatingWords, 500);
+
+    musicBtn.addEventListener("click", () => {
+      if(!isPlaying){
+        bgMusic.volume = 0;
+        bgMusic.play();
+        let vol=0;
+        const fadeIn = setInterval(()=>{ if(vol<0.5){ vol+=0.02; bgMusic.volume=vol; } else clearInterval(fadeIn); },100);
+        isPlaying=true;
+        musicBtn.title="Pause Music";
+        musicBtn.querySelector("img").src="https://cdn-icons-png.flaticon.com/512/727/727240.png";
+      } else {
+        bgMusic.pause();
+        isPlaying=false;
+        musicBtn.title="Play Music";
+        musicBtn.querySelector("img").src="https://cdn-icons-png.flaticon.com/512/727/727245.png";
+      }
+    });
+
+    window.onload = () => {
+      typeWriter();
+      changeBackground();
+      setInterval(changeBackground, 8000);
+    };
+  </script>
+
+</body>
+</html>
