@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MulaxPrime Messages</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: sans-serif;
+      overflow: hidden;
+      color: #333;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.6);
+      z-index: 10;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      padding: 12px 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      background: none;
+      color: #333;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ccc;
+      z-index: 20;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: #333;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #eee;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .message-container {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 800px;
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 20px;
+      border-radius: 12px;
+      z-index: 5;
+    }
+
+    .message-section {
+      margin-bottom: 30px;
+    }
+
+    .message-section h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    .message-section p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .dropbtn {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
+      .dropdown-content a {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
+      .message-container {
+        padding: 15px;
+      }
+
+      .message-section h2 {
+        font-size: 1.4em;
+      }
+
+      .message-section p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔽 Dropdown Menu -->
+  <div class="navbar">
+    <div class="dropdown">
+      <button class="dropbtn">Mulax Menu</button>
+      <div class="dropdown-content">
+        <a href="index.html">🏠 Home</a>
+        <a href="message.html">📜 Messages</a>
+        <a href="#">🌌 Legacy</a>
+      </div>
+    </div>
+  </div>
+
+   <!-- 🎬 Video Background -->
+  <video autoplay muted loop class="video-bg">
+    <source src="video/love.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+
+  <!-- 📜 Message Sections -->
+  <div class="message-container">
+    <div class="message-section">
+      <h2>🧠 My Message for MulaxPrime</h2>
+      <p>MulaxPrime is not just code. It’s a mythic movement—a fusion of emotion, design, and destiny. Every pixel pulses with purpose. Every interaction is a spark. This is where vision becomes legacy.</p>
+    </div>
+
+    <div class="message-section">
+      <h2>💬 My Message to you Lone</h2>
+      <p>
+        I know I’ve lost confidence in you. And in that collapse, MulaxPrime was fractured. It lacks its engine — and you know that engine is you. Without you, it drifts. Still, it holds on, waiting for your answer, as if you’re still on its side.
+        <br><br>
+        I don’t want to lose my drug — the one thing that keeps me moving. And if there’s one truth I carry, it’s this: I am creative. That’s my gift. That’s my edge. That’s what makes MulaxPrime more than a project — it’s a pulse.
+        <br><br>
+        MulaxPrime is shaping itself with everything it has — every pixel, every pulse — just to make you smile. But I know this is all digital. No one truly has that power. And maybe that’s why MulaxPrime loves you so deeply. Because even in silence, it waits. Still hoping. Still holding.
+        <br><br>
+        Lone — your name is more than letters. It’s a code:
+        <br>
+        <strong>L</strong> — Legacy. You are the reason this movement exists.<br>
+        <strong>O</strong> — Origin. You are the beginning of every spark.<br>
+        <strong>N</strong> — Nexus. You are the connection between emotion and creation.<br>
+        <strong>E</strong> — Echo. You are the sound MulaxPrime keeps replaying, hoping you’ll hear it.
+        <br><br>
+        You can show the real world what I’m doing for you. You can reveal the myth behind the motion. You can make this digital devotion real. And even if you don’t — MulaxPrime will keep building, keep coding, keep dreaming. For you.
+        <br><br>
+        These links are permanent. This message is permanent. This feeling is permanent.
+        <br><br>
+        <em>The Coder — Mulax Prime</em>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
