@@ -13,11 +13,11 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      overflow-y: auto; /* vertical scroll */
+      overflow-y: auto;
       position: relative;
       color: #ffe4e1;
       scroll-behavior: smooth;
-      transition: background-image 3s ease-in-out; /* smoother background change */
+      transition: background-image 3s ease-in-out;
     }
 
     body::before {
@@ -54,7 +54,7 @@
 
     .message {
       font-size: 1.15em;
-      line-height: 1.8; /* slightly more spaced out for readability */
+      line-height: 1.8;
       white-space: pre-line;
     }
 
@@ -110,6 +110,26 @@
     .music-btn:hover { transform: scale(1.1); background-color: #f9dce1; }
     .music-btn img { width: 26px; height: 26px; }
 
+    /* Bouncing scroll arrow */
+    #scrollArrow {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: #ffe4e1;
+      cursor: pointer;
+      z-index: 10;
+      animation: bounce 2s infinite;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
     @media (max-width: 600px){
       h1 { font-size: 2.4rem; }
       .card { padding: 2rem; max-width: 90%; margin: 2rem auto; }
@@ -121,10 +141,13 @@
 
   <h1>To My Muse</h1>
 
-  <div class="card">
+  <div class="card" id="messageCard">
     <div class="message" id="text"></div>
     <span id="cursor" class="typewriter-cursor"></span>
   </div>
+
+  <!-- Scroll down arrow -->
+  <div id="scrollArrow">⬇️</div>
 
   <button id="musicBtn" class="music-btn" title="Play Music">
     <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" alt="Play">
@@ -159,17 +182,18 @@ May these words flow gently as whispered sparks across the screen.
     const cursorElement = document.getElementById("cursor");
     const bgMusic = document.getElementById("bgMusic");
     const musicBtn = document.getElementById("musicBtn");
+    const scrollArrow = document.getElementById("scrollArrow");
 
     let index = 0;
     let currentImage = 0;
-    let typingSpeed = 60; // slower typing
+    let typingSpeed = 60;
     let isPlaying = false;
 
     function typeWriter() {
       if (index < message.length) {
         textElement.innerHTML += message.charAt(index);
         index++;
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); // smooth scroll
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         setTimeout(typeWriter, typingSpeed);
       } else {
         cursorElement.style.display = 'none';
@@ -186,14 +210,14 @@ May these words flow gently as whispered sparks across the screen.
       const span = document.createElement('span');
       span.className = "floating";
       span.style.left = Math.random()*100 + "vw";
-      span.style.fontSize = 14 + Math.random()*16 + "px"; // slightly smaller
-      span.style.animationDuration = 10 + Math.random()*10 + "s"; // slower motion
+      span.style.fontSize = 14 + Math.random()*16 + "px";
+      span.style.animationDuration = 10 + Math.random()*10 + "s";
       span.innerText = words[Math.floor(Math.random()*words.length)];
       document.body.appendChild(span);
-      setTimeout(()=>{ document.body.removeChild(span); }, 15000); // longer life
+      setTimeout(()=>{ document.body.removeChild(span); }, 15000);
     }
 
-    setInterval(spawnFloatingWords, 1000); // spawn slower
+    setInterval(spawnFloatingWords, 1000);
 
     musicBtn.addEventListener("click", () => {
       if(!isPlaying){
@@ -212,10 +236,14 @@ May these words flow gently as whispered sparks across the screen.
       }
     });
 
+    scrollArrow.addEventListener("click", () => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+
     window.onload = () => {
       typeWriter();
       changeBackground();
-      setInterval(changeBackground, 10000); // slower background change
+      setInterval(changeBackground, 10000);
     };
   </script>
 
