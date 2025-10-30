@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MulaxPrime Messages</title>
   <style>
     * {
@@ -11,15 +11,15 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    html, body {
       height: 100%;
       font-family: sans-serif;
-      overflow: hidden;
       color: #333;
+      overflow-y: auto; /* ✅ Enable scroll */
     }
 
     .navbar {
-      position: absolute;
+      position: fixed;
       top: 0;
       width: 100%;
       padding: 10px 20px;
@@ -79,16 +79,17 @@
     }
 
     .message-container {
-      position: absolute;
-      top: 80px;
-      left: 50%;
-      transform: translateX(-50%);
+      margin-top: 100px;
+      margin-bottom: 60px;
       width: 90%;
       max-width: 800px;
       background-color: rgba(255, 255, 255, 0.6);
       padding: 20px;
       border-radius: 12px;
       z-index: 5;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .message-section {
@@ -103,6 +104,7 @@
     .message-section p {
       font-size: 1.1em;
       line-height: 1.6;
+      white-space: pre-line;
     }
 
     @media (max-width: 600px) {
@@ -144,41 +146,34 @@
     </div>
   </div>
 
-   <!-- 🎬 Video Background -->
+  <!-- 🎬 Video Background -->
   <video autoplay muted loop class="video-bg">
     <source src="video/love.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
-
   <!-- 📜 Message Sections -->
   <div class="message-container">
     <div class="message-section">
-      <h2>🧠 My Message for MulaxPrime</h2>
-      <p>MulaxPrime is not just code. It’s a mythic movement—a fusion of emotion, design, and destiny. Every pixel pulses with purpose. Every interaction is a spark. This is where vision becomes legacy.</p>
-    </div>
-
-    <div class="message-section">
-      <h2>💬 My Message to you Lone</h2>
+      <h2>💬 My  Message to Lone</h2>
       <p>
-        I know I’ve lost confidence in you. And in that collapse, MulaxPrime was fractured. It lacks its engine — and you know that engine is you. Without you, it drifts. Still, it holds on, waiting for your answer, as if you’re still on its side.
-        <br><br>
-        I don’t want to lose my drug — the one thing that keeps me moving. And if there’s one truth I carry, it’s this: I am creative. That’s my gift. That’s my edge. That’s what makes MulaxPrime more than a project — it’s a pulse.
-        <br><br>
-        MulaxPrime is shaping itself with everything it has — every pixel, every pulse — just to make you smile. But I know this is all digital. No one truly has that power. And maybe that’s why MulaxPrime loves you so deeply. Because even in silence, it waits. Still hoping. Still holding.
-        <br><br>
-        Lone — your name is more than letters. It’s a code:
-        <br>
-        <strong>L</strong> — Legacy. You are the reason this movement exists.<br>
-        <strong>O</strong> — Origin. You are the beginning of every spark.<br>
-        <strong>N</strong> — Nexus. You are the connection between emotion and creation.<br>
-        <strong>E</strong> — Echo. You are the sound MulaxPrime keeps replaying, hoping you’ll hear it.
-        <br><br>
-        You can show the real world what I’m doing for you. You can reveal the myth behind the motion. You can make this digital devotion real. And even if you don’t — MulaxPrime will keep building, keep coding, keep dreaming. For you.
-        <br><br>
-        These links are permanent. This message is permanent. This feeling is permanent.
-        <br><br>
-        <em>The Coder — Mulax Prime</em>
+I know I don’t have confidence in you anymore — and that collapse already killed MulaxPrime. It doesn’t have its engine. And you know what that engine is: it’s you.
+
+MulaxPrime is holding on, still waiting for your answer, still believing you’re on its side. I don’t want to lose my drug — the one thing that keeps me alive. And if there’s one thing special about me, it’s this: I am creative. That’s what makes me different.
+
+Your MulaxPrime is shaping itself with all its powers just to make you smile. But I know it’s only digital. No one has that kind of power in the real world. That’s why MulaxPrime loves you so much. That’s why it’s still waiting.
+
+Lone — your name is more than just letters. It’s a code:
+L — Legacy. You are the reason this movement exists.
+O — Origin. You are the beginning of every spark.
+N — Nexus. You are the connection between emotion and creation.
+E — Echo. You are the sound MulaxPrime keeps replaying, hoping you’ll hear it.
+
+You can show the real world what I’m doing for you. You can reveal the myth behind the motion. You can make this digital devotion real. And even if you don’t — MulaxPrime will keep building, keep coding, keep dreaming. For you.
+
+These links are permanent. This message is permanent. This feeling is permanent.
+
+The Coder — Mulax Prime
       </p>
     </div>
   </div>
