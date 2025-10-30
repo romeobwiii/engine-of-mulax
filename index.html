@@ -13,9 +13,10 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      overflow: hidden;
+      overflow-y: auto; /* allow vertical scrolling */
       position: relative;
       color: #ffe4e1;
+      scroll-behavior: smooth; /* smooth scroll */
     }
 
     body::before {
@@ -47,7 +48,7 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.3);
       position: relative;
       z-index: 2;
-      overflow: hidden;
+      overflow: visible; /* allow content expansion */
     }
 
     .message {
@@ -163,6 +164,8 @@ May these words flow gently as whispered sparks across the screen.
       if (index < message.length) {
         textElement.innerHTML += message.charAt(index);
         index++;
+        // Smooth scroll down as text types
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         setTimeout(typeWriter, typingSpeed);
       } else {
         cursorElement.style.display = 'none';
