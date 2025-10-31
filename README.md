@@ -30,7 +30,7 @@ Whether you're building a tribute for your crush, expressing quiet admiration, o
 ## 🚀 How to Use
 
 1. Clone the repo  
-   `git clone https://github.com/romeobwiii/engine-of-mulax`
+   `git clone https://github.com/yourusername/engine-of-mulax`
 
 2. Customize your message in `message.html`  
    Replace the text with your own story, poem, or confession.
@@ -75,4 +75,7 @@ Student, creative technologist, and emotional coder
 GitHub: [Mulax Prime](https://github.com/romeobwiii)
 
 ---
+☕ Support
+If this helped you speak your heart, thank Amantle by buying him a coffee: https://www.buymeacoffee.com/mulaxprime
 
+He built this with love.
