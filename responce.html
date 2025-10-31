@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Her Response – MulaxPrime</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('photo/lone.png') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    /* 🔽 Dropdown Menu */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 10;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      padding: 12px 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      background: none;
+      color: #fff;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 1px solid #444;
+      z-index: 20;
+      border-radius: 6px;
+    }
+
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      color: #fff;
+    }
+
+    .dropdown-content a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* 💬 Centered Typing Message */
+    .centered-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .typing-box {
+      max-width: 700px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00f2ff;
+      font-size: 1.2em;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      color: #fff;
+      visibility: hidden;
+    }
+
+    .typing {
+      display: inline-block;
+      border-right: 2px solid #fff;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #fff; }
+    }
+
+    @media (max-width: 600px) {
+      .dropbtn {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
+      .dropdown-content a {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
+      .typing-box {
+        padding: 20px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔽 Dropdown Menu -->
+  <div class="navbar">
+    <div class="dropdown">
+      <button class="dropbtn">Mulax Menu</button>
+      <div class="dropdown-content">
+        <a href="index.html">🏠 Home</a>
+        <a href="message.html">📜 Messages</a>
+        <a href="response.html">🗣️ Response</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 💬 Centered Typing Message -->
+  <div class="centered-container">
+    <div class="typing-box" id="typingBox">
+      <span id="typed-text" class="typing"></span>
+    </div>
+  </div>
+
+  <script>
+    const message = `Lone,
+
+This space is yours.
+
+If you feel anything—anything at all—about what you’ve seen, you’re welcome to speak.
+You don’t have to explain. You don’t have to justify. You can just feel.
+
+MulaxPrime was built for you. And if you ever want to talk to me personally, you may come.
+
+I will be waiting—truly, patiently, and always.
+
+—Amantle`;
+
+    const typedText = document.getElementById("typed-text");
+    const typingBox = document.getElementById("typingBox");
+    let index = 0;
+
+    function typeLetter() {
+      if (index < message.length) {
+        typedText.textContent += message.charAt(index);
+        index++;
+        setTimeout(typeLetter, 40);
+      } else {
+        typedText.classList.remove("typing");
+      }
+    }
+
+    window.onload = function() {
+      setTimeout(() => {
+        typingBox.style.visibility = "visible";
+        typeLetter();
+      }, 4000); // 4-second delay
+    };
+  </script>
+
+</body>
+</html>
