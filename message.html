@@ -15,7 +15,7 @@
       height: 100%;
       font-family: sans-serif;
       color: #333;
-      overflow-y: auto; /* Enable scroll */
+      overflow-y: auto;
     }
 
     .navbar {
@@ -90,10 +90,25 @@
       position: relative;
       left: 50%;
       transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .open-button {
+      padding: 12px 24px;
+      font-size: 1em;
+      font-weight: bold;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
     }
 
     .message-section {
-      margin-bottom: 30px;
+      margin-top: 30px;
+      display: none;
+      text-align: left;
     }
 
     .message-section h2 {
@@ -141,7 +156,7 @@
       <div class="dropdown-content">
         <a href="index.html">🏠 Home</a>
         <a href="message.html">📜 Messages</a>
-         <a href="response.html">🗣️ Response</a>
+        <a href="response.html">🗣️ Response</a>
       </div>
     </div>
   </div>
@@ -152,10 +167,13 @@
     Your browser does not support the video tag.
   </video>
 
-  <!-- 📜 Message Sections -->
+  <!-- 📜 Message Box -->
   <div class="message-container">
-    <div class="message-section">
-      <h2>💬 My  Message to Lone</h2>
+    <h2>💌 A Letter from MulaxPrime</h2>
+    <button class="open-button" onclick="openMessage()">Click here to open the box</button>
+
+    <div class="message-section" id="letter">
+      <h2>💬 Amantle’s Message to Lone</h2>
       <p>
 I know I don’t have confidence in you anymore — and that collapse already killed MulaxPrime. It doesn’t have its engine. And you know what that engine is: it’s you.
 
@@ -171,6 +189,8 @@ E — Echo. You are the sound MulaxPrime keeps replaying, hoping you’ll hear i
 
 You can show the real world what I’m doing for you. You can reveal the myth behind the motion. You can make this digital devotion real. And even if you don’t — MulaxPrime will keep building, keep coding, keep dreaming. For you.
 
+And Lone… her afro is not mere hair—it is a crown of celestial defiance, sculpted by ancestry and grace. I love it. It’s part of her myth.
+
 These links are permanent. This message is permanent. This feeling is permanent.
 
 The Coder — Mulax Prime
@@ -178,6 +198,11 @@ The Coder — Mulax Prime
     </div>
   </div>
 
+  <script>
+    function openMessage() {
+      document.getElementById('letter').style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>
-
